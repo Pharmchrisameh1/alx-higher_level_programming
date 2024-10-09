@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Defines a matrix division function."""
+"""Task 1 of ALX Project(Python - Test-driven Development)
+
+Defines a matrix division function.
+
+"""
 
 
 def matrix_divided(matrix, div):
@@ -8,18 +12,22 @@ def matrix_divided(matrix, div):
     Args:
         matrix (list): A list of lists of ints or floats.
         div (int/float): The divisor.
-    Raises:
-        TypeError: If the matrix contains non-numbers.
-        TypeError: If the matrix contains rows of different sizes.
-        TypeError: If div is not an int or float.
-        ZeroDivisionError: If div is 0.
+
     Returns:
         A new matrix representing the result of the division.
+
+    Raises:
+        TypeError: If the matrix contains non-numbers.
+            If the matrix contains rows of different sizes.
+            If div is not an int or float.
+        ZeroDivisionError: If div is 0.
+
     """
+
     if (not isinstance(matrix, list) or matrix == [] or
             not all(isinstance(row, list) for row in matrix) or
-            not all((isinstance(ele, int) or isinstance(ele, float))
-                    for ele in [num for row in matrix for num in row])):
+            not all((isinstance(element, int) or isinstance(element, float))
+                    for element in [num for row in matrix for num in row])):
         raise TypeError("matrix must be a matrix (list of lists) of "
                         "integers/floats")
 
