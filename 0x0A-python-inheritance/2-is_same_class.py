@@ -1,24 +1,13 @@
 #!/usr/bin/python3
-"""Task 2 of ALX Project(Python - Inheritance)
-
-This module defines a function that confirms an object-class relationship.
-
-"""
+"""is_same_class module."""
 
 
-def is_same_class(obj, a_class):
-    """Check if the specified object is exactly an instance of
-    the specified class.
+def is_same_class(obj, a_class) -> bool:
+    """
+    Check if the object is exactly an instance of the specified class.
 
     Args:
-        obj: the object
-        a_class: the class
-
-    Returns:
-        bool: True, if there's a direct relationship, and False, if otherwise.
-
+        abj (object): The object to check.
+        a_class (type): The class to compare the object against.
     """
-    if type(obj) == a_class:
-        return True
-    else:
-        return False
+    return type(obj) is a_class
