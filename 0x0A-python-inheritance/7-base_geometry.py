@@ -1,29 +1,24 @@
 #!/usr/bin/python3
-"""Task 7 of ALX Project(Python - Inheritance)
-
-This module defines a class that just does random things.
-
-"""
+"""BaseGeometry Class."""
 
 
 class BaseGeometry:
-    """Do some few things"""
+    """Base geometry class representation."""
 
-    def area(self):
-        """Raise an error"""
+    def area(self) -> int:
+        """Not implemented yet."""
         raise Exception("area() is not implemented")
 
-    def integer_validator(self, name, value):
-        """Check if value is an integer.
+    def integer_validator(self, name, value) -> None:
+        """Validate an integer value.
 
         Args:
-            name: any name at all
-            value (int): the value to be validated
+            name (str): The name of the value being validated.
+            value (int): The value to be validated.
 
         Raises:
-            TypeError: if `value` is not an integer
-            ValueError: if `value` is less than or equal to 0
-
+            TypeError: If the value is not an integer.
+            ValueError: If the value is not greater than zero.
         """
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
