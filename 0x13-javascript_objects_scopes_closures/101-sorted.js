@@ -1,9 +1,15 @@
 #!/usr/bin/node
-exports.dict = {
-    89: 1,
-    90: 2,
-    91: 1,
-    92: 3,
-    93: 1,
-    94: 2
-};
+const dict = require('./101-data.js').dict;
+let uniqueList = new Set(Object.values(dict));
+uniqueList = Array.from(uniqueList);
+const newDict = {};
+for (const element of uniqueList) {
+  const valueArray = [];
+  for (const key of Object.keys(dict)) {
+    if (dict[key] === element) {
+      valueArray.push(key);
+    }
+    newDict[element] = valueArray;
+  }
+}
+console.log(newDict);
