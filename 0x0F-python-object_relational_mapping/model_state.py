@@ -1,21 +1,17 @@
 #!/usr/bin/python3
-"""This module defines the class City and the declarative instance Base.
+"""This module defines the class State and the instance Base.
 """
-from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base, State
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, String
 
 
-class City(Base):
-    """This class defines the mapper class for the cities tables
-    in the hbtn_0e_14_usa DB.
+Base = declarative_base()
+
+
+class State(Base):
+    """This class defines the mapper class for the states tables
+    in the hbtn_0e_6_usa DB.
     """
-    __tablename__ = "cities"
+    __tablename__ = "states"
     id = Column('id', Integer, primary_key=True)
     name = Column('name', String(128), nullable=False)
-    state_id = Column('state_id', Integer, ForeignKey('states.id'))
-
-    state = relationship('State', back_populates='cities')
-
-
-State.cities = relationship('City', back_populates='state')
