@@ -1,27 +1,20 @@
 #!/usr/bin/node
-
+// this script gets the contents of a webpage and stores it in a file.
 const request = require('request');
 const fs = require('fs');
-
 const url = process.argv[2];
-const filePath = process.argv[3];
+const filename = process.argv[3];
 
-if (!url || !filePath) {
-  console.error('Usage: ./5-request_store.js <URL> <filePath>');
-  process.exit(1);
-}
-
-request(url, (error, response, body) => {
-  if (error) {
-    console.error(`Error fetching ${url}:`, error);
-    process.exit(1);
-  }
-
-  fs.writeFile(filePath, body, 'utf8', (err) => {
+if (process.argv.length === 4) {
+  request(url, (err, response, body) => {
     if (err) {
-      console.error(`Error writing to file ${filePath}:`, err);
-      process.exit(1);
+      console.error(err);
+      return;
     }
+    fs.writeFile(filename, body, 'utf8', (err) => {
+      if (err) {
+        console.error(err);
+      }
+    });
   });
-});
-
+}
